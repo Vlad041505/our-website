@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <style>
+      /* The actual timeline (the vertical ruler) */
+      .main-timeline-2 {
+        position: relative;
+      }
+
+      /* The actual timeline (the vertical ruler) */
+      .main-timeline-2::after {
+        content: "";
+        position: absolute;
+        width: 3px;
+        background-color: #f88cea;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        margin-left: -3px;
+      }
+
+      /* Container around content */
+      .timeline-2 {
+        position: relative;
+        background-color: inherit;
+        width: 50%;
+      }
+
+      /* The circles on the timeline */
+      .timeline-2::after {
+        content: "";
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        right: -11px;
+        background-color: #f88cea;
+        top: 15px;
+        border-radius: 50%;
+        z-index: 1;
+      }
+
+      /* Place the container to the left */
+      .left-2 {
+        padding: 0px 40px 20px 0px;
+        left: 0;
+      }
+
+      /* Place the container to the right */
+      .right-2 {
+        padding: 0px 0px 20px 40px;
+        left: 50%;
+      }
+
+      /* Add arrows to the left container (pointing right) */
+      .left-2::before {
+        content: " ";
+        position: absolute;
+        top: 18px;
+        z-index: 1;
+        right: 30px;
+        border: medium solid white;
+        border-width: 10px 0 10px 10px;
+        border-color: transparent transparent transparent white;
+      }
+
+      /* Add arrows to the right container (pointing left) */
+      .right-2::before {
+        content: " ";
+        position: absolute;
+        top: 18px;
+        z-index: 1;
+        left: 30px;
+        border: medium solid white;
+        border-width: 10px 10px 10px 0;
+        border-color: transparent white transparent transparent;
+      }
+
+      /* Fix the circle for containers on the right side */
+      .right-2::after {
+        left: -14px;
+      }
+
+      /* Media queries - Responsive timeline on screens less than 600px wide */
+      @media screen and (max-width: 600px) {
+        /* Place the timelime to the left */
+        .main-timeline-2::after {
+          left: 31px;
+        }
+
+        /* Full-width containers */
+        .timeline-2 {
+          width: 100%;
+          padding-left: 70px;
+          padding-right: 25px;
+        }
+
+        /* Make sure that all arrows are pointing leftwards */
+        .timeline-2::before {
+          left: 60px;
+          border: medium solid white;
+          border-width: 10px 10px 10px 0;
+          border-color: transparent white transparent transparent;
+        }
+
+        /* Make sure all circles are at the same spot */
+        .left-2::after,
+        .right-2::after {
+          left: 18px;
+        }
+
+        .left-2::before {
+          right: auto;
+        }
+
+        /* Make all right containers behave like the left ones */
+        .right-2 {
+          left: 0%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="./index.html"
+          >M<svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-heart"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"
+            /></svg>V</a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="./index.html"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="./timeline.html">Timeline</a>
+            </li>
+            
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section style="background-color: #f0f2f5">
+      <div class="container py-5">
+        <div class="main-timeline-2">
+          <div class="timeline-2 left-2">
+            <div class="card">
+              <img
+                src="./resources/pngwing.com.png"
+                class="card-img-top"
+              />
+              <div class="card-body p-4">
+                <h4 class="fw-bold mb-4">Primele noastre mesaje</h4>
+                <p class="text-muted mb-4">
+                  <i class="far fa-clock" aria-hidden="true"></i> 28.05.2023
+                </p>
+
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-2 right-2">
+            <div class="card">
+              <img
+                src="./resources/423472548_1116226749385301_718949222158059391_n.jpg"
+                class="card-img-top"
+              />
+              <div class="card-body p-4">
+                <h4 class="fw-bold mb-4">Una din primele noastre zile</h4>
+                <p class="text-muted mb-4">
+                  <i class="far fa-clock" aria-hidden="true"></i> 03.07.2023
+                </p>
+                <p class="mb-0">
+
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-2 left-2">
+            <div class="card">
+              <img
+                src="./resources/image00010.jpeg"
+                class="card-img-top"
+              />
+              <div class="card-body p-4">
+                <h4 class="fw-bold mb-4">Suntem atat de frumosi impreuna:)</h4>
+                <p class="text-muted mb-4">
+                  <i class="far fa-clock" aria-hidden="true"></i> 05.07.2023
+                </p>
+                <p class="mb-0">
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-2 right-2">
+            <div class="card">
+              <img
+                src="./resources/image00009.jpeg"
+                class="card-img-top"
+                alt="Responsive image"
+              />
+              <div class="card-body p-4">
+                <h4 class="fw-bold mb-4">Our summer night walks</h4>
+                <p class="text-muted mb-4">
+                  <i class="far fa-clock" aria-hidden="true"></i> 12.07.2023
+                </p>
+                <p class="mb-0">
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-2 left-2">
+            <div class="card">
+              <img
+                src="./resources/image00006.jpeg"
+                class="card-img-top"
+                alt="Responsive image"
+              />
+              <div class="card-body p-4">
+                <h4 class="fw-bold mb-4"></h4>
+                <p class="text-muted mb-4">
+                  <i class="far fa-clock" aria-hidden="true"></i> 23.12.2023
+                </p>
+                <p class="mb-0">
+
+              </div>
+            </div>
+          </div>
+          <div class="timeline-2 right-2">
+            <div class="card">
+              <img
+                src="./resources/image00005.jpeg"
+                class="card-img-top"
+                alt="Responsive image"
+              />
+              <div class="card-body p-4">
+                <h4 class="fw-bold mb-4">You cooked me for the first time</h4>
+                <p class="text-muted mb-4">
+                  <i class="far fa-clock" aria-hidden="true"></i> 23.12.2023
+                </p>
+                <p class="mb-0">And it was it was so good!!</p>
+
+              </div>
+            </div>
+            
+          </div>
+          <div class="timeline-2 left-2">
+            <div class="card">
+              <img
+                src="./resources/image00004.jpeg"
+                class="card-img-top"
+                alt="Responsive image"
+              />
+              <div class="card-body p-4">
+                <h4 class="fw-bold mb-4">Te-am scos putin in oras</h4>
+                <p class="text-muted mb-4">
+                  <i class="far fa-clock" aria-hidden="true"></i> 30.12.2023
+                </p>
+                <p class="mb-0">Bun la Amadeus. Mai mergem.</p>
+
+              </div>
+            </div>
+            
+          </div>
+          <div class="timeline-2 right-2">
+            <div class="card">
+              <img
+                src="./resources/image00003.jpeg"
+                class="card-img-top"
+                alt="Responsive image"
+              />
+              <div class="card-body p-4">
+                <h4 class="fw-bold mb-4">Am mancat in sfarsit la Ursul Carpatin.</h4>
+                <p class="text-muted mb-4">
+                  <i class="far fa-clock" aria-hidden="true"></i> 02.01.2024
+                </p>
+                <p class="mb-0">Plangeam de mult ca vreau. Chiar a fost bun si acolo.</p>
+
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"
+  ></script>
+</html>
